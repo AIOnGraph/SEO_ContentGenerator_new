@@ -1,0 +1,6 @@
+maintest1.py
+teststreamlit.py
+.env
+venv/
+__pycache__
+.streamlit/
