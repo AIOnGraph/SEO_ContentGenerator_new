@@ -33,6 +33,9 @@ def topic_generator(input_text,temperature_value,topic_language,topic_type,OPEN_
     res=response.choices[0].message.content.split("\n")
     while("" in res):
         res.remove("")
+    for i in range(len(res)):
+        res[i] = res[i].replace('"', '')
+    print(res)
     return res
     
 
