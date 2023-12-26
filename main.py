@@ -1,6 +1,5 @@
 from SEOOptimizer import topic_generator, content_generator
 import streamlit as st
-import pyperclip
 from streamlit_option_menu import option_menu
 
 
