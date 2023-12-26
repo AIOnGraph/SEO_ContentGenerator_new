@@ -50,7 +50,7 @@ Ribbon = option_menu(None, ["Topic Generator", "Generate Content", "Content Resp
 })
 
 
-def function(Ribbon):
+def function_to_generate(Ribbon):
 
     if Ribbon == "Topic Generator":
 
@@ -78,10 +78,10 @@ def function(Ribbon):
             if st.session_state.topic_response:
                 topic = st.radio('Recommended Topics',
                                  st.session_state.topic_response[-1],)
-                if topic:
-                    if st.button('Copy'):
-                        pyperclip.copy(topic)
-                        st.success('Text copied successfully!')
+                # if topic:
+                #     if st.button('Copy'):
+                #         pyperclip.copy(topic)
+                #         st.success('Text copied successfully!')
 
 
 if Ribbon == 'Generate Content':
@@ -154,4 +154,4 @@ if Ribbon == 'Content Response':
 
 
 if __name__ == "__main__":
-    function(Ribbon)
+    function_to_generate(Ribbon)
