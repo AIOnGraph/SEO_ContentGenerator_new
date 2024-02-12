@@ -3,6 +3,9 @@
 # OVERVIEW
 The SEO Content Generator is a powerful tool designed to streamline the creation of search engine optimized content. It enables users to produce high-quality, keyword-rich content efficiently, saving time and effort in the content creation process.
 
+## About OpenAI
+[OpenAI](https://openai.com/) is an artificial intelligence research laboratory consisting of the for-profit corporation OpenAI LP and its parent company, the non-profit OpenAI Inc. OpenAI conducts cutting-edge research in the field of artificial intelligence and develops tools and models to advance AI capabilities for the benefit of humanity.
+
 # Features
 **Customizable Templates:**  Utilize pre-defined templates or create custom ones to tailor content to specific needs.
 
