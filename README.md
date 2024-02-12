@@ -48,7 +48,7 @@ python main.py
 We welcome contributions from the community. If you have ideas for improvements or encounter issues, please open a GitHub issue or submit a pull request.
 
 ## License
-This project is licensed under the MIT License.See [LICENSE](https://github.com/AIOnGraph/SEO_ContentGenerator_new/blob/main/LICENSE%20.txt) for further details.
+This project is licensed under the MIT License.See [LICENSE](https://github.com/AIOnGraph/SEO_ContentGenerator_new/blob/main/LICENSE) for further details.
 
 ## Acknowledgments
 Special thanks to contributors and open-source projects that inspired this tool.
