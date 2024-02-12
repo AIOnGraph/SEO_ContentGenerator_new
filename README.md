@@ -1,4 +1,5 @@
 # SEO CONTENT GENERATOR
+
 # OVERVIEW
 The SEO Content Generator is a powerful tool designed to streamline the creation of search engine optimized content. It enables users to produce high-quality, keyword-rich content efficiently, saving time and effort in the content creation process.
 
@@ -12,7 +13,9 @@ The SEO Content Generator is a powerful tool designed to streamline the creation
 ## Getting Started
 ## Prerequisites
 **Python 3.x installed**
-**Required Python packages (specified in requirements.txt)**
+
+Required Python packages (specified in requirements.txt)
+
 ## Installation
 **Clone the repository:** 
 ```
@@ -45,7 +48,7 @@ python main.py
 We welcome contributions from the community. If you have ideas for improvements or encounter issues, please open a GitHub issue or submit a pull request.
 
 ## License
-This project is licensed under the MIT License. Feel free to use, modify, and distribute the code according to the terms of the license.
+This project is licensed under the MIT License.See [LICENSE](https://github.com/AIOnGraph/SEO_ContentGenerator_new/blob/main/LICENSE%20.txt) for further details.
 
 ## Acknowledgments
 Special thanks to contributors and open-source projects that inspired this tool.
