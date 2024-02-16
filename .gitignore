@@ -5,3 +5,9 @@ venv/
 __pycache__
 .streamlit/
 yyy.py
+contentgen.py
+content_generator_using_callbackhandler.py
+SEOOptimizer.py
+webcrawler.py
+webcrawler_using_asynchtmlloader.py
+topic_generator.py
