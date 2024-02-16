@@ -105,7 +105,7 @@ with st.sidebar:
     # OPEN_AI_API='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'
     if not OPEN_AI_API:
         st.warning(
-            body='Kindly enter you API 🔑 in the side bar to chat with us' ,icon='⚠️')
+            body='Kindly enter you API 🔑 here' ,icon='⚠️')
 
 st.title("SEO CONTENT GENERATOR")
 Option_Selected = option_menu(None, ["Generate Content","Save Content"],
