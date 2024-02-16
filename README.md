@@ -33,7 +33,7 @@ pip install -r requirements.txt
 ```
 **Run the application:**
 ```
-python main.py
+python contentgeneratorstream.py
 ```
 # Usage
 **1. Launch the application.**
