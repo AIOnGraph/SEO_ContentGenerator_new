@@ -1,6 +1,5 @@
 from openai import OpenAI
 
-
 def initilize_openai(OPEN_AI_API):
     open_ai = OpenAI(api_key=OPEN_AI_API)
     return open_ai
@@ -52,4 +51,6 @@ def content_generator(content_topic,content_type,content_length,focus_market,con
             temperature=0.0,messages=messages,)
     return response.choices[0].message.content
     
- 
+
+
+
