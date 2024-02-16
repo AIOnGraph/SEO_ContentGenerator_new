@@ -3,7 +3,7 @@ teststreamlit.py
 .env
 venv/
 __pycache__
-.streamlit/
+.streamlit/secrets.toml
 yyy.py
 contentgen.py
 content_generator_using_callbackhandler.py

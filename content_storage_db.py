@@ -9,22 +9,17 @@ import streamlit as st
 
 
 def text_splitter_and_store_in_db(data_to_store):
-    # my_bar.progress(45, text="processing data ..")
     for content_topic, dict_content_details in data_to_store.items():
         content_text=dict_content_details["content_text"]
         print(content_text)
-        # loader = Docx2txtLoader("example_data/fake.docx")
         text_splitter = CharacterTextSplitter(separator="\n\n\n\n\n\n",chunk_size=1000, chunk_overlap=0)
         document = text_splitter.create_documents(texts=[content_text], metadatas=[{"content_topic":content_topic,"content_type":dict_content_details["content_type"],"content_language":dict_content_details["language"],"focus_market":dict_content_details["focus_market"],"audience_type":dict_content_details["audience_type"],"content_length":dict_content_details["content_length"]}])
-        # print(document)
         content_docs = text_splitter.split_documents(document)
-        # print(content_docs)
         response = store_data_in_pinecone(content_docs)
         return response
 
 
 def store_data_in_pinecone(document):
-    # my_bar.progress(70, text="Uploading data ..")
     index_name = 'generated-content-storage'
     embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     pp(api_key=st.secrets["PINECONE_API_KEY"])
