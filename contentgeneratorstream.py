@@ -152,7 +152,6 @@ def function_to_generate(Option_Selected):
         content_topic = st.text_input(
             'Enter Topic', key="content_topic_key",placeholder="Enter Topic",label_visibility="collapsed")
         st.session_state.content_topic=content_topic
-        # if st.session_state.content_topic:
         if content_topic:
             if st.session_state.disabled == False:
                 if st.button("Recommend Some Topics",):
@@ -169,7 +168,6 @@ def function_to_generate(Option_Selected):
                     topic_selected = st.radio(
                         'Recommended Topics', st.session_state.topic_response_for_generate_content[-1])
                     st.session_state.topic_selected = topic_selected
-                    # st.write(f"Topic is {st.session_state.topic_selected}")
 
         if st.session_state.topic_selected:
             if st.button("Generate Content",key="content_generator"):
