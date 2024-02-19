@@ -23,6 +23,7 @@ def initilize_openai(OPEN_AI_API):
     open_ai = OpenAI(api_key=OPEN_AI_API)
     return open_ai
 
+
 if "content_length" not in st.session_state:
     st.session_state.content_length=None
 if "audience_type" not in st.session_state:
@@ -102,7 +103,6 @@ def content_generator_using_chatopenai(content_topic,content_type,content_length
 with st.sidebar:
     OPEN_AI_API = st.text_input(
         'OpenAI API Key 🔑' ,placeholder='Paste your key(🔑) here',type="password")
-    # OPEN_AI_API='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'
     if not OPEN_AI_API:
         st.warning(
             body='Kindly enter you API 🔑 here' ,icon='⚠️')
@@ -150,7 +150,7 @@ def function_to_generate(Option_Selected):
             '**AUDIENCE TYPE**', ['Neutral', 'Professional', 'Funny', 'Friendly'], horizontal=True)
         st.session_state.audience_type=audience_type
         content_topic = st.text_input(
-            'Input Topic..', key="content_topic_key")
+            'Enter Topic', key="content_topic_key",placeholder="Enter Topic",label_visibility="collapsed")
         st.session_state.content_topic=content_topic
         # if st.session_state.content_topic:
         if content_topic:
@@ -169,7 +169,7 @@ def function_to_generate(Option_Selected):
                     topic_selected = st.radio(
                         'Recommended Topics', st.session_state.topic_response_for_generate_content[-1])
                     st.session_state.topic_selected = topic_selected
-                    st.write(f"Topic is {st.session_state.topic_selected}")
+                    # st.write(f"Topic is {st.session_state.topic_selected}")
 
         if st.session_state.topic_selected:
             if st.button("Generate Content",key="content_generator"):
@@ -200,12 +200,17 @@ def function_to_generate(Option_Selected):
                 
             
     if Option_Selected == "Save Content":
+        if "store_topic_in_db" not in st.session_state:
+            st.session_state.store_topic_in_db=None
+        st.session_state.store_topic_in_db=st.session_state.topic_selected
+        st.session_state.topic_selected=None
+        st.session_state.topic_response_for_generate_content=[]
         if st.session_state.content_response:
             content_text=st.text_area(label=" Here the response of your Search",
                         height=1000, value=st.session_state.content_response)
             if  st.button("Save",key="savebutton"):
                 my_bar = st.progress(0, text="uploading ..")
-                response=process_to_store_data(st.session_state.topic_selected,content_text,st.session_state.content_type,st.session_state.content_language,st.session_state.focus_market,st.session_state.audience_type,st.session_state.content_length)   
+                response=process_to_store_data(st.session_state.store_topic_in_db,content_text,st.session_state.content_type,st.session_state.content_language,st.session_state.focus_market,st.session_state.audience_type,st.session_state.content_length)   
                 st.warning(response,icon="⚠️")
         else:
             st.warning("No Content Found !!", icon="⚠️")
