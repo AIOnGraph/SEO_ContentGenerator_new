@@ -102,7 +102,6 @@ def content_generator_using_chatopenai(content_topic,content_type,content_length
 with st.sidebar:
     OPEN_AI_API = st.text_input(
         'OpenAI API Key 🔑' ,placeholder='Paste your key(🔑) here',type="password")
-    # OPEN_AI_API='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'
     if not OPEN_AI_API:
         st.warning(
             body='Kindly enter you API 🔑 here' ,icon='⚠️')
