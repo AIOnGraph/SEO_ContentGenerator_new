@@ -11,7 +11,6 @@ import streamlit as st
 def text_splitter_and_store_in_db(data_to_store):
     for content_topic, dict_content_details in data_to_store.items():
         content_text=dict_content_details["content_text"]
-        print(content_text)
         text_splitter = CharacterTextSplitter(separator="\n\n\n\n\n\n",chunk_size=1000, chunk_overlap=0)
         document = text_splitter.create_documents(texts=[content_text], metadatas=[{"content_topic":content_topic,"content_type":dict_content_details["content_type"],"content_language":dict_content_details["language"],"focus_market":dict_content_details["focus_market"],"audience_type":dict_content_details["audience_type"],"content_length":dict_content_details["content_length"]}])
         content_docs = text_splitter.split_documents(document)
@@ -24,8 +23,6 @@ def store_data_in_pinecone(document):
     embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     pp(api_key=st.secrets["PINECONE_API_KEY"])
     Pinecone.from_documents(document, embeddings, index_name=index_name)
-    print("Successfully Uploaded")
-    # my_bar.progress(100, text="Successfully Uploaded ")
     return "Successfully Uploaded"
 def search_similar_topics(topic_text):
     index_name = 'generated-content-storage'
@@ -41,7 +38,6 @@ def search_similar_topics(topic_text):
         return list_of_5_similiar_topic
     else :
         return None    
-    # print(docs[0].page_content)
 
 def search_similar():
     index_name = 'generated-content-storage'
@@ -49,7 +45,6 @@ def search_similar():
     docsearch = Pinecone.from_existing_index(index_name, embeddings)
     query = "https://www.ongraph.com/market-research-software-tools-for-survey-creation/"
     docs = docsearch.similarity_search(query, k=1)
-    print(docs[0].page_content)
 
 
 def process_to_store_data(content_topic,content_text,content_type,language,focus_market,audience_type,content_length):
@@ -72,8 +67,6 @@ def get_content_from_database(content_topic,content_type,focus_market,content_la
         docs[0].metadata["focus_market"] == focus_market and
         docs[0].metadata["audience_type"] == audience_type and
         docs[0].metadata["content_length"] == content_length):
-            print(docs[0].metadata)
-            print(docs[0].page_content)
             print("geting from database")
             return docs[0].page_content
         else:

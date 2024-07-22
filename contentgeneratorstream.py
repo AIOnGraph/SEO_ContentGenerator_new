@@ -48,7 +48,6 @@ if "topic_response" not in st.session_state:
      
      
 def convert_temperature_from_string_to_int(temperature_value):
-    print(temperature_value)
     temperature_for_openai=0.0
     if temperature_value =="Different Ideas":
         temperature_for_openai=0.3
@@ -77,7 +76,6 @@ def topic_generator(input_text,temperature_value,topic_language,topic_type,OPEN_
         res.remove("")
     for i in range(len(res)):
         res[i] = res[i].replace('"', '')
-    print(res)
     return res
 
 
@@ -94,7 +92,6 @@ def content_generator_using_chatopenai(content_topic,content_type,content_length
     )]
     chat = ChatOpenAI(streaming=True,temperature=0.0,api_key=OPEN_AI_API)
     response=chat.stream(messages)
-    print(response)
     return response
     
     
@@ -193,7 +190,6 @@ def function_to_generate(Option_Selected):
                                 if bool(chunk):
                                     time.sleep(0.02)
                                     placeholder.markdown(full_response + "")
-                            print(full_response)
                             st.session_state.content_response=full_response
                 
             
