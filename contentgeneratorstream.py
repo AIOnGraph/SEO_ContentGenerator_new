@@ -3,7 +3,7 @@ from langchain.schema import HumanMessage, SystemMessage
 from streamlit_option_menu import option_menu
 from openai import OpenAI
 from langchain_openai import ChatOpenAI
-from content_storage_db import process_to_store_data,get_content_from_database
+# from content_storage_db import process_to_store_data,get_content_from_database
 import time
 
 def disable():
@@ -169,7 +169,8 @@ def function_to_generate(Option_Selected):
         if st.session_state.topic_selected:
             if st.button("Generate Content",key="content_generator"):
                 with st.spinner("processing..."):
-                    content_from_db=get_content_from_database(st.session_state.topic_selected,content_type,focus_market,content_language,audience_type,st.session_state.content_length)
+                    # content_from_db=get_content_from_database(st.session_state.topic_selected,content_type,focus_market,content_language,audience_type,st.session_state.content_length)
+                    content_from_db=None
                     if content_from_db:
                         message_placeholder = st.empty()
                         full_response = ""
@@ -202,10 +203,10 @@ def function_to_generate(Option_Selected):
         if st.session_state.content_response:
             content_text=st.text_area(label=" Here the response of your Search",
                         height=1000, value=st.session_state.content_response)
-            if  st.button("Save",key="savebutton"):
-                my_bar = st.progress(0, text="uploading ..")
-                response=process_to_store_data(st.session_state.store_topic_in_db,content_text,st.session_state.content_type,st.session_state.content_language,st.session_state.focus_market,st.session_state.audience_type,st.session_state.content_length)   
-                st.warning(response,icon="⚠️")
+            # if  st.button("Save",key="savebutton"):
+            #     my_bar = st.progress(0, text="uploading ..")
+            #     response=process_to_store_data(st.session_state.store_topic_in_db,content_text,st.session_state.content_type,st.session_state.content_language,st.session_state.focus_market,st.session_state.audience_type,st.session_state.content_length)   
+            #     st.warning(response,icon="⚠️")
         else:
             st.warning("No Content Found !!", icon="⚠️")
         
